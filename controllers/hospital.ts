@@ -6,7 +6,7 @@ export async function listHospital(req: Request, res: Response) {
   //conecta com o banco
   const client = await pool.connect();
   //realiza consulta sql
-  const hospital = await client.query(`select * from hospitais`)
+  const hospital = await client.query(`select * from hospital`)
   //retorna consulta em formato json
   return res.status(200).json(hospital.rows);
 }
@@ -15,7 +15,7 @@ export async function saveHospital(req: Request, res: Response) {
  //conecta com o banco
  const client = await pool.connect();
  //realiza consulta sql
- const response = await client.query(`INSERT INTO hospitais(address) VALUES ('${hospital.address}')`)
+ const response = await client.query(`INSERT INTO hospital(address) VALUES ('${hospital.address}')`)
   res.status(201).json(response);
 }
 
