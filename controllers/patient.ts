@@ -6,7 +6,7 @@ export async function listPatient(req: Request, res: Response) {
   //conecta com o banco
   const client = await pool.connect();
   //realiza consulta sql
-  const patients = await client.query(`select * from patients`)
+  const patients = await client.query(`select * from patient`)
   //retorna consulta em formato json
   return res.status(200).json(patients.rows);
 }
